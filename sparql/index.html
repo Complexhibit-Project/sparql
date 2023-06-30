@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exhibitium</title>
+
+        <h1 style="text-align:center">SPARQL Endpoint</h1>
+        
+    </div>
+    <input type="hidden" name="csrfmiddlewaretoken" value="jHxNRYxfZAqlTxPOlauRzZMQbiBN1sRPSGnoa34J099ljJRAf1bHdQRDvskTHTGi">
+    <div id="yasgui" style="padding: 2px;"></div>
+    <link href="https://cdn.jsdelivr.net/npm/yasgui@2.7.19/dist/yasgui.min.css" rel="stylesheet" type="text/css">
+    <style>
+        .yasgui .endpointText {
+            display: none !important;
+        }
+
+        .controlbar {
+            display: none !important;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/yasgui@2.7.19/dist/yasgui.min.js"></script>
+    <script type="text/javascript">
+        var yasgui = YASGUI(document.getElementById("yasgui"), {
+            yasqe: {
+                sparql: {
+                    showQueryButton: true,
+                    endpoint: "https://khaos.uma.es/movilidad/OntoExhibit/sparql/tunnel/",
+                    requestMethod: 'POST'
+                },
+                // Allow resizing of the Yasqe editor
+                resizeable: true,
+
+                // Whether to autofocus on Yasqe on page load
+                autofocus: true,
+            },
+        });
+    </script>
+    </div>
+
+    <!--
+    <div class="container-fluid" style="margin-top: 60px">
+        <div class="mt-5 p-10 bg-transparent text-white text-center" style="bottom: 0;left: 0;right: 0;">
+            <p>Universidad de Málaga</p>
+        </div>
+    </div>
+    -->
+    <!--
+    <footer class="row tm-row">
+        <hr class="col-12">
+        <div class="col-md-6 col-12 tm-color-gray">
+            <a rel="nofollow" target="_parent" href="https://www.uma.es/" class="tm-external-link">
+                Universidad de Málaga
+            </a>
+        </div>
+        <div class="col-md-6 col-12 tm-color-gray tm-copyright">
+            Exhibitium
+        </div>
+    </footer>
+    -->
+</main>
+</body>
+</html>
