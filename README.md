@@ -25,11 +25,12 @@ WHERE {
 ```
 #### Galleries Exhibiting Artists Born After 1980 🎨👶
 ```sparql
-# This query get all galleries exhibiting artists born after 1980 
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX exo: <https://w3id.org/OntoExhibit/>
 PREFIX cidoc: <https://cidoc-crm.org/cidoc-crm/7.1.1/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
 
 SELECT ?gname ?pname ?year
 WHERE {
@@ -49,6 +50,7 @@ WHERE {
   ?bird exo:tookPlaceIn ?date.
   ?date rdfs:label ?year.
   ?person exo:name ?pname
+  
   FILTER (?year >= '1980'^^xsd:dateTime)
 }
 ```
