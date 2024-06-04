@@ -25,6 +25,7 @@ WHERE {
 ```
 #### Galleries Exhibiting Artists Born After 1980 🎨👶
 ```sparql
+# This query get all galleries exhibiting artists born after 1980 
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX exo: <https://w3id.org/OntoExhibit/>
@@ -48,8 +49,7 @@ WHERE {
   ?bird exo:tookPlaceIn ?date.
   ?date rdfs:label ?year.
   ?person exo:name ?pname
-  
-  FILTER (?year >= '1980')
+  FILTER (?year >= '1980'^^xsd:dateTime)
 }
 ```
 #### Women Artists with a Constant Presence in the Exhibition Ecosystem 👩‍🎨💪
@@ -65,14 +65,12 @@ WHERE {
   ?ex rdfs:label ?title.
   ?ex exo:hasExhibitionMaking ?exm.
   ?exm exo:hadExhibitor ?exhibitor.
+
   ?exhibitor exo:isTheRoleOf ?person.
-
-  ?person rdf:type cidoc:E21_Person.
-  ?person exo:gender 'Femenino'.
-  ?person exo:name ?pname
-} 
-ORDER BY (?pname)
-
+  ?person exo:name ?pname.
+  ?person exo:gender ?gender.
+  FILTER(STR(?gender) = 'Femenino')
+}
 ```
 
 ## Contact 📧
